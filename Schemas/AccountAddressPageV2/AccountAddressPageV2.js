@@ -10,10 +10,10 @@ define("AccountAddressPageV2", [], function () {
 			 * Переопределение базового метода "save".
 			 * @overridden
 			 */
-			// save: function () {
-			// 	const parentMethod = this.getParentMethod(this, arguments);
-			// 	this.ensureAddressWithTypeNotExists(parentMethod);
-			// },
+			save: function () {
+				const parentMethod = this.getParentMethod(this, arguments);
+				this.ensureAddressWithTypeNotExists(parentMethod);
+			},
 
 			/**
 			 * Выполняет проверку, имеется ли адрес с таким же типом у Контрагента.
