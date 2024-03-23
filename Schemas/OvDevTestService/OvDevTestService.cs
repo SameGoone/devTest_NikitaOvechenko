@@ -22,8 +22,6 @@ public class OvDevTestService : BaseService
     [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json)]
     public virtual int GetAccountsWithNamePartCount(string namePart)
     {
-        Logger.Info($"namePart: {namePart}");
-
         Argument.EnsureNotNullOrEmpty(namePart, nameof(namePart));
 
         var esq = new EntitySchemaQuery(UserConnection.EntitySchemaManager, nameof(Account));
@@ -32,8 +30,6 @@ public class OvDevTestService : BaseService
 
         var countEntity = esq.GetEntityCollection(UserConnection)[0];
         var count = countEntity.GetTypedColumnValue<int>(countColumn.Name);
-
-        Logger.Info($"count: {count}");
 
         return count;
     }

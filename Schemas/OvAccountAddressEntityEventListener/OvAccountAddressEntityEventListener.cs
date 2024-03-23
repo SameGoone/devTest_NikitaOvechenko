@@ -48,14 +48,11 @@ public class AccountAddressEntityEventListener : BaseEntityEventListener
         var countEntity = esq.GetEntityCollection(UserConnection)[0];
         var count = countEntity.GetTypedColumnValue<int>(countColumn.Name);
 
-        Logger.Info($"count: {count}");
-
         return count > 0;
     }
 
     protected virtual void ClearAddressType()
     {
-        Logger.Info("очищаем");
         Entity.SetColumnValue(nameof(AccountAddress.AddressTypeId), null);
     }
 }
